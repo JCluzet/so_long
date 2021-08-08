@@ -6,6 +6,8 @@
 typedef struct		s_long
 {
 	char			**map;
+	int				X;
+	int				Y;
 }					t_long;
 
 #endif _SO__LONG.H_

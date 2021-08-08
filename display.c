@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/08 21:21:29 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/08 22:14:44 by jcluzet          ###   ########.fr       */
+/*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
+/*   Updated: 2021/08/08 21:48:08 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-int main(int argc, char **argv)
+int display(t_long *sl);
 {
-    t_long      solong;
-
-    if (argc == 1)
-		return(0);
-    parse(&solong, argc, argv[1]);
-    display(&solong);
-    return(0);
+    
 }
-

@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/08 21:28:05 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/08 21:47:25 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME		=	so_long
 MLX			=	libmlx.dylib
 
 SRCS			=	so_long.c \
+					parsing.c \
+					display.c \
 					
 
 CC			=	clang
