@@ -6,16 +6,19 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/08 23:19:49 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/09 01:18:28 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-int parsing(t_long *sl, int argc, char argv)
+int parsing(t_long *sl, int argc, char *argv)
 {
+    initvar(sl);
     sl->Y = 5;  // to remove
     sl->X = 10; // to remove
+    sl->Yscreen = 500;
+    sl->Xscreen = 1000;
     mallocmap(sl, argv);
     stockmap(sl, argv);
     return(0);
@@ -28,13 +31,26 @@ int get_x_and_y(t_long *sl, char *argv)
     return(0);
 }
 
-int stockmap(t_long *sl, char argv)
+int stockmap(t_long *sl, char *argv)
 {
     sl->map[0] = "1111111111";
     sl->map[1] = "10010000C1";
     sl->map[2] = "1000011001";
     sl->map[3] = "1P000110E1";
     sl->map[4] = "1111111111";
+    return(0);
+}
+
+int     initvar(t_long *sl)
+{
+    sl->keyboard[BACK] = 0;
+	sl->keyboard[RED_BUTTON] = 0;
+	sl->keyboard[ESC] = 0;
+	sl->keyboard[LEFT] = 0;
+	sl->keyboard[RIGHT] = 0;
+	sl->keyboard[ADVANCE] = 0;
+    sl->bpp = 0;
+	sl->s_line = 0;
     return(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 19:54:37 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/08 23:26:49 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/09 00:31:37 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ int		ft_keyboard(t_long *sl)
 	// 	moveplayer(2, display);
 	// if (display->keyboard[RIGHT])
 	// 	moveplayer(3, display);
-	if (sl->keyboard[ESC] || sl->keyboard[RED_BUTTON])
+	if (sl->keyboard[ESC] == 1 || sl->keyboard[RED_BUTTON] == 1)
 		freeandexit(sl);
 	return (0);
 }
 
 int		closebyredbutton(t_long *sl)
 {
-	sl->keyboard[RED_BUTTON] = 1;
+	freeandexit(sl);
+	sl->keyboard[79] = 1;
 	return (0);
 }

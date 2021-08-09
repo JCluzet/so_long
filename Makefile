@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/08 23:29:04 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/09 01:12:48 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,18 @@ MLX			=	libmlx.dylib
 
 SRCS			=	so_long.c	\
 					parsing.c	\
-					display.c	\	
+					display.c	\
 					keyboard.c	\
-					freeandexit.c
+					freeandexit.c	\
+					draw.c
 					
 					
 					
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	
+#-Wall -Wextra -Werror
 
 UNAME		:=	$(shell uname)
 
@@ -34,7 +36,7 @@ $(NAME):
 			@echo "\033[33m[so_long MACOS compilation...]"
 			@ $(MAKE) -C mlx all
 			@ cp ./mlx/$(MLX) .
-			$(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) -Imlx $(SRCS) -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+			$(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) -Imlx $(SRCS) -g -fsanitize=address -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
 			@echo "\033[32m[ ./so_long created ]"
 endif
 
