@@ -47,7 +47,7 @@ int     checkaremove(t_long *sl)
     if (sl->map[sl->player_y][sl->player_x] == 'C')
     {
         sl->collectible++;
-        // sl->map[sl->player_y][sl->player_x] = '0'; // For remove collectible when player on it BUT dont work ?? 
+        sl->map[sl->player_y][sl->player_x] = '0'; // For remove collectible when player on it BUT dont work ??
     }
     if (sl->map[sl->player_y][sl->player_x] == 'E')
     {

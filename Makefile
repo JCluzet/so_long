@@ -12,7 +12,7 @@
 
 NAME		=	so_long
 
-MLX			=	libmlx.dylib
+MLX			=	libmlx.a
 
 SRCS			=	so_long.c	\
 					parsing.c	\
@@ -21,13 +21,13 @@ SRCS			=	so_long.c	\
 					freeandexit.c	\
 					draw.c 	\
 					moveplayer.c
-					
-					
-					
+
+
+
 
 CC			=	clang
 
-CFLAGS		=	
+CFLAGS		=
 #-Wall -Wextra -Werror
 
 UNAME		:=	$(shell uname)

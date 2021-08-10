@@ -22,7 +22,7 @@ int parsing(t_long *sl, int argc, char *argv)
 
 int get_x_and_y(t_long *sl, char *argv)
 {
-    // put the file(argv) in a GET_NEXT_LINE (change it to get X and Y of map) 
+    // put the file(argv) in a GET_NEXT_LINE (change it to get X and Y of map)
     // stock X & Y of the map in sl->X || sl->Y
     sl->Y = 5;  // to remove
     sl->X = 10; // to remove
@@ -30,14 +30,15 @@ int get_x_and_y(t_long *sl, char *argv)
     sl->Xscreen = sl->X * 64;
     return(0);
 }
-
+#include <libc.h>
 int stockmap(t_long *sl, char *argv)
 {
-    sl->map[0] = "1111111111";
-    sl->map[1] = "1001C00001";
-    sl->map[2] = "1CC0011001";
-    sl->map[3] = "1P000110E1";
-    sl->map[4] = "1111111111";
+    strcpy(sl->map[0], "1111111111");
+    strcpy(sl->map[1], "1001C00001");
+    strcpy(sl->map[2], "1CC0011001");
+    strcpy(sl->map[3], "1P000110E1");
+    strcpy(sl->map[4], "1111111111");
+    // sl->map[5] = NULL;
     return(0);
 }
 
@@ -66,7 +67,7 @@ int			mallocmap(t_long *sl, char *argv)
 	sl->map = malloc(sizeof(char*) * sl->Y);
 	while (i < sl->Y)
 	{
-		sl->map[i] = malloc(sizeof(char*) * sl->X + 1);
+		sl->map[i] = malloc(sizeof(char) * (sl->X + 1));
 		i++;
 	}
 	return (1);
