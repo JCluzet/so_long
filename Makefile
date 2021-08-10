@@ -15,12 +15,9 @@ NAME		=	so_long
 MLX			=	libmlx.a
 
 SRCS			=	so_long.c	\
-					parsing.c	\
-					display.c	\
-					keyboard.c	\
-					freeandexit.c	\
-					draw.c 	\
-					moveplayer.c
+					display/*	\
+					parsing/*	\
+					utils/*
 
 
 
