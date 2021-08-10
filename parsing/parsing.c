@@ -12,7 +12,7 @@
 
 #include "../inc/so_long.h"
 
-int parsing(t_long *sl, int argc, char *argv)
+int parsing(t_long *sl, char *argv)
 {
     initvar(sl);
     mallocmap(sl, argv);
@@ -22,6 +22,7 @@ int parsing(t_long *sl, int argc, char *argv)
 
 int get_x_and_y(t_long *sl, char *argv)
 {
+    (void)argv;
     // put the file(argv) in a GET_NEXT_LINE (change it to get X and Y of map)
     // stock X & Y of the map in sl->X || sl->Y
     sl->Y = 5;  // to remove
@@ -33,6 +34,7 @@ int get_x_and_y(t_long *sl, char *argv)
 
 int stockmap(t_long *sl, char *argv)
 {
+    (void)argv;
     ft_strcpy(sl->map[0], "1111111111");
     ft_strcpy(sl->map[1], "1001C00001");
     ft_strcpy(sl->map[2], "1CC0011001");

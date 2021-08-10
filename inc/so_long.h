@@ -52,7 +52,7 @@ typedef struct		s_long
 
 int get_x_and_y(t_long *sl, char *argv);
 char *ft_strcpy(char *dest, char *src);
-int parsing(t_long *sl, int argc, char *argv);
+int parsing(t_long *sl, char *argv);
 int stockmap(t_long *sl, char *argv);
 int	mallocmap(t_long *sl, char *argv);
 int render_calcul(t_long *sl);

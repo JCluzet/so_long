@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
     if (argc == 1)
 		  return(0);
-    parsing(&solong, argc, argv[1]);
+    parsing(&solong, argv[1]);
     display(&solong);
     return(0);
 }

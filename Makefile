@@ -24,8 +24,7 @@ SRCS			=	so_long.c	\
 
 CC			=	clang
 
-CFLAGS		=
-#-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 UNAME		:=	$(shell uname)
 

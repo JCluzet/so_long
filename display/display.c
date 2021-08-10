@@ -57,7 +57,6 @@ int render(t_long *sl)
 {
     int X;
     int Y;
-    int text;
 
     Y = 0;
     X = 0;
