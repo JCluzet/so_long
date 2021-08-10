@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/09 01:18:28 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/10 02:12:51 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 int parsing(t_long *sl, int argc, char *argv)
 {
     initvar(sl);
-    sl->Y = 5;  // to remove
-    sl->X = 10; // to remove
-    sl->Yscreen = 500;
-    sl->Xscreen = 1000;
     mallocmap(sl, argv);
     stockmap(sl, argv);
     return(0);
@@ -28,14 +24,18 @@ int get_x_and_y(t_long *sl, char *argv)
 {
     // put the file(argv) in a GET_NEXT_LINE (change it to get X and Y of map) 
     // stock X & Y of the map in sl->X || sl->Y
+    sl->Y = 5;  // to remove
+    sl->X = 10; // to remove
+    sl->Yscreen = sl->Y * 64;
+    sl->Xscreen = sl->X * 64;
     return(0);
 }
 
 int stockmap(t_long *sl, char *argv)
 {
     sl->map[0] = "1111111111";
-    sl->map[1] = "10010000C1";
-    sl->map[2] = "1000011001";
+    sl->map[1] = "1001C00001";
+    sl->map[2] = "1CC0011001";
     sl->map[3] = "1P000110E1";
     sl->map[4] = "1111111111";
     return(0);
@@ -50,7 +50,10 @@ int     initvar(t_long *sl)
 	sl->keyboard[RIGHT] = 0;
 	sl->keyboard[ADVANCE] = 0;
     sl->bpp = 0;
+    sl->collectible = 0;
+    sl->collectibletotal = 0;
 	sl->s_line = 0;
+    sl->move = 0;
     return(0);
 }
 
@@ -63,7 +66,7 @@ int			mallocmap(t_long *sl, char *argv)
 	sl->map = malloc(sizeof(char*) * sl->Y);
 	while (i < sl->Y)
 	{
-		sl->map[i] = malloc(sizeof(char) * sl->X + 1);
+		sl->map[i] = malloc(sizeof(char*) * sl->X + 1);
 		i++;
 	}
 	return (1);

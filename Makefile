@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/09 01:12:48 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/10 01:16:20 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS			=	so_long.c	\
 					display.c	\
 					keyboard.c	\
 					freeandexit.c	\
-					draw.c
+					draw.c 	\
+					moveplayer.c
 					
 					
 					
