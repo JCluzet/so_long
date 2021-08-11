@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:09:55 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:16:17 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 15:56:49 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 int checkmap(t_long *sl)
 {
     if (sl->playerset < 1)
-        showerror(sl, "Player missing in MAP");
+        showerror(sl, "You must set a player 'P'");
     if (sl->playerset > 1)
         showerror(sl, "Multiplayer mode unavailable");
     if (sl->exitset < 1)
-        showerror(sl, "You must place an exit 'E' in MAP");
+        showerror(sl, "You must set an exit 'E'");
     if (sl->exitset > 1)
         showerror(sl, "Only 1 exit is permitted");
-    // filland
+    if (sl->collectibletotal == 0)
+        showerror(sl, "You must set a collectible 'C'");
+    checkthewall(sl);
     return(0);
 }
 
@@ -46,18 +48,78 @@ int	checkcubextension(char *str, t_long *sl)
 	return (0);
 }
 
-// int		checkthewall(t_long *sl)
-// {
-// 	int mapx;
-// 	int mapy;
+int		floodandfill(t_long *sl, int mapy, int mapx)
+{
+	if (sl->map[mapy][mapx] == 'a' ||
+	sl->map[mapy][mapx] == 'c' || sl->map[mapy][mapx] == 'd'
+	|| sl->map[mapy][mapx] == 'e')
+	{
+		if (checkaround(mapx, mapy, sl) == 0)
+			showerror(sl, "Map is not surrounded/closed by wall");
+		if (sl->map[mapy][mapx] == 'a')
+			sl->map[mapy][mapx] = '0';
+		if (sl->map[mapy][mapx] == 'c')
+			sl->map[mapy][mapx] = 'P';
+		if (sl->map[mapy][mapx] == 'd')
+        {
+			sl->map[mapy][mapx] = 'E';
+            sl->exitparse++;
+        }
+        if (sl->map[mapy][mapx] == 'e')
+        {
+			sl->map[mapy][mapx] = 'C';
+            sl->collectibleparse++;
+        }
+        floodandfill(sl, mapy, mapx + 1);
+		floodandfill(sl, mapy, mapx - 1);
+		floodandfill(sl, mapy + 1, mapx);
+		floodandfill(sl, mapy - 1, mapx);
+	}
+	return (1);
+}
 
-// 	mapy = (int)sl->player_x;
-// 	mapx = (int)sl->player_y;
-// 	floodandfill(display, mapx, mapy + 1);
-// 	floodandfill(display, mapx, mapy - 1);
-// 	floodandfill(display, mapx + 1, mapy);
-// 	floodandfill(display, mapx, mapy - 1);
-// 	mapx = 0;
-// 	mapy = 0;
-// 	return (0);
-// }
+int		checkifgood(char c)
+{
+	if (c != '0' && c != 'a' && c != '1' && c != 'P' && c != 'c' && c != 'E'
+	&& c != 'd' && c != 'C' && c != 'e')
+		return (0);
+	return (1);
+}
+
+int		checkaround(int mapx, int mapy, t_long *sl)
+{
+	if (mapy == 0 || mapy == sl->Y - 1
+	|| mapx == 0 || mapx == sl->X - 1)
+		showerror(sl, "Map is not surrounded/closed by walls");
+	if (checkifgood(sl->map[mapy + 1][mapx]) == 0)
+		return (0);
+	if (checkifgood(sl->map[mapy - 1][mapx]) == 0)
+		return (0);
+	if (checkifgood(sl->map[mapy][mapx + 1]) == 0)
+		return (0);
+	if (checkifgood(sl->map[mapy][mapx - 1]) == 0)
+		return (0);
+	return (1);
+}
+
+int		checkthewall(t_long *sl)
+{
+	int mapx;
+	int mapy;
+
+	mapy = (int)sl->player_x;
+	mapx = (int)sl->player_y;
+    sl->collectibleparse = 0;
+    sl->exitparse = 0;
+	floodandfill(sl, mapx, mapy + 1);
+	floodandfill(sl, mapx, mapy - 1);
+	floodandfill(sl, mapx + 1, mapy);
+	floodandfill(sl, mapx, mapy - 1);
+    if (sl->collectibleparse != sl->collectibletotal)
+        showerror(sl, "Some collectible are out of the map");
+    if (sl->exitparse == 0)
+        showerror(sl, "Exit is out of the map");
+	// mapx = 0;
+	// mapy = 0;
+	return (0);
+}

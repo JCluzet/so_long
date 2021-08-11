@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 04:50:49 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 15:46:15 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int stockline(t_long *sl, char *line, int nb)
     while (line[index])
     {
         sl->casetotal++;
-        sl->map[nb][index] = line[index];
+        sl->map[nb][index] = replacechar(line[index]);
         if (line[index] == 'P')
         {
             sl->playerset++;
@@ -92,6 +92,21 @@ int stockline(t_long *sl, char *line, int nb)
             showerror(sl, "Wrong character in map");
         index++;
     }
+    return(0);
+}
+
+char    replacechar(char c)
+{
+    if (c == '0')
+        return('a');
+    if (c == '1')
+        return('1');
+    if (c == 'P')
+        return('c');
+    if (c == 'E')
+        return('d');
+    if (c == 'C')
+        return('e');
     return(0);
 }
 

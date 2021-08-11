@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 04:25:09 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 15:52:42 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int printtexture(t_long *sl, int starter_X, int starter_Y)
 
 int     gettextnum(int X, int Y, t_long *sl)
 {
-    if (sl->map[Y][X] == '0')
+    if (sl->map[Y][X] == '0' || sl->map[Y][X] == 'a')
         sl->actualtext = 0;
     if(sl->map[Y][X] == '1')
         sl->actualtext = 1;

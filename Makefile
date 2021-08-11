@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/11 02:19:40 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/11 05:35:24 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ UNAME		:=	$(shell uname)
 
 ifeq ($(UNAME), Darwin)
 $(NAME):
-			@echo "\033[33m[so_long MACOS compilation...]"
-			@ $(MAKE) -C mlx all
+			@echo "\033[33m[Compilation of so_long...]"
+			@ $(MAKE) -C mlx all >/dev/null 2>&1
 			@ cp ./mlx/$(MLX) .
-			$(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) -Imlx $(SRCS) -g -fsanitize=address -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
+			@$(CC) $(CFLAGS) -g3 -Ofast -o $(NAME) -Imlx $(SRCS) -g -fsanitize=address -Lmlx -lmlx -lm -framework OpenGL -framework AppKit
 			@echo "\033[32m[ ./so_long created ]"
 endif
 
@@ -58,12 +58,12 @@ ifeq ($(UNAME), Linux)
 clean:
 			@ echo "\033[31m[Remove last version...]"
 			@ $(MAKE) -C mlx_linux clean
-			# @ rm -rf so_long.dSYM
+			@ rm -rf so_long.dSYM
 endif
 
 fclean:		clean
 			@ rm $(MLX)
-			rm so_long
+			@ rm so_long
 
 
 re:			fclean all
