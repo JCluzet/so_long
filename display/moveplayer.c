@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:10:00 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:07:05 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:36:15 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int     moveplayer(int nb, t_long *sl)
     if (nb == 3)
         if (sl->map[sl->player_y][sl->player_x + 1] != '1')
             displaymove(sl, nb);
-    checkaremove(sl);
+    // checkaremove(sl);
     return(0);
 }
 
@@ -44,6 +44,7 @@ int     displaymove(t_long *sl, int nb)
     sl->move++;
     write(1, "Move : ", 8);
     ft_putnbr(sl->move);
+    checkaremove(sl);
     return(0);
 }
 
@@ -70,7 +71,27 @@ int     checkaremove(t_long *sl)
 
 int pos_player(t_long *sl)
 {
+    if (sl->lastplayer_x != -1)
+    {
+        gettextnum(sl->lastplayer_x, sl->lastplayer_y, sl);
+        printtexture(sl, sl->lastplayer_x, sl->lastplayer_y);
+    }
+    gettextnum(sl->player_x, sl->player_y, sl);
+    printtexture(sl, sl->player_x, sl->player_y);
     sl->actualtext = 3;
     printtexture(sl, sl->player_x, sl->player_y);
+    sl->lastplayer_x = sl->player_x;
+    sl->lastplayer_y = sl->player_y;
+    // sl->actualtext = gettextnum(sl->player_x, sl->player_y, sl);
+    resetkeyboard(sl);
     return(0);
+}
+
+void    resetkeyboard(t_long *sl)
+{
+    sl->keyboard[ESC] = 0;
+    sl->keyboard[RIGHT] = 0;
+	sl->keyboard[LEFT] = 0;
+    sl->keyboard[BACK] = 0;
+	sl->keyboard[ADVANCE] = 0;
 }

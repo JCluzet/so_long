@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 19:54:37 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/10 01:15:59 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:13:18 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 int		ft_key_hit(int keycode, t_long *sl)
 {
 	sl->keyboard[keycode] = 1;
-	return (0);
-}
-
-int		ft_key_release(int keycode, t_long *sl)
-{
-	sl->keyboard[keycode] = 0;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:24:36 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:25:09 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,6 @@ int printtexture(t_long *sl, int starter_X, int starter_Y)
 			sl->color = *(unsigned int*) (sl->ptr_text[sl->actualtext] + sl->sline_text[sl->actualtext] * y + x * (sl->bpp_text[sl->actualtext] / 8));
 			if (sl->color != 0) {
                 mlx_pixel_put(sl->mlx_ptr, sl->mlx_win, starter_X * 64 + x, starter_Y * 64 + y, sl->color);
-				// put_pxl(sl, starter_X * 64 + x, starter_Y * 64 + y, sl->color);
-				if(x < 100)
-					printf("Starter_X > %d\n", x);
 			}
 			x++;
 		}
@@ -62,13 +59,13 @@ int     gettextnum(int X, int Y, t_long *sl)
 {
     if (sl->map[Y][X] == '0')
         sl->actualtext = 0;
-    else if(sl->map[Y][X] == '1')
+    if(sl->map[Y][X] == '1')
         sl->actualtext = 1;
-    else if(sl->map[Y][X] == 'C')
+    if(sl->map[Y][X] == 'C')
         sl->actualtext = 2;
-    else if (sl->map[Y][X] == 'E')
+    if (sl->map[Y][X] == 'E')
         sl->actualtext = 4;
-    else if (sl->map[Y][X] == 'P')
+    if (sl->map[Y][X] == 'P')
         sl->actualtext = 0;
     return(0);
 }

@@ -23,6 +23,8 @@ typedef struct		s_long
 	int				X;
 	int				Y;
 	double			Xcase;
+	clock_t			last_frame;
+	clock_t			next_frame;
 	double			Ycase;
 	int				player_x;
 	int				player_y;
@@ -83,6 +85,7 @@ void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 int     displaymove(t_long *sl, int nb);
 int			freemap(t_long *sl);
+void    resetkeyboard(t_long *sl);
 
 int		ft_key_hit(int keycode, t_long *sl);
 int		ft_key_release(int keycode, t_long *sl);

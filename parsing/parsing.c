@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:10:36 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 02:51:58 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int get_x_and_y(t_long *sl, char *filename)
     }
     if (sl->Y == 0 || sl->X == 0)
         showerror(sl, "Map is not correct or not well formated");
-    printf("X >> %d | Y >> %d", sl->X, sl->Y);
+    // printf("X >> %d | Y >> %d", sl->X, sl->Y);
     sl->Yscreen = sl->Y * 64;
     sl->Xscreen = sl->X * 64;
     close(fd);
@@ -96,6 +96,8 @@ int stockline(t_long *sl, char *line, int nb)
 
 int     initvar(t_long *sl)
 {
+    sl->last_frame = clock();
+	sl->next_frame = 0;
     sl->keyboard[BACK] = 0;
 	sl->keyboard[RED_BUTTON] = 0;
 	sl->keyboard[ESC] = 0;
@@ -113,6 +115,8 @@ int     initvar(t_long *sl)
     sl->playerset = 0;
     sl->collectibleset = 0;
     sl->exitset = 0;
+    sl->lastplayer_x = -1;
+    sl->lastplayer_y = -1;
     sl->mlx_ptr = NULL;
     return(0);
 }

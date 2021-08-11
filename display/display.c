@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:26:10 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:13:07 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int go_hooking(t_long *sl)
 {
     mlx_do_key_autorepeatoff(sl->mlx_ptr);
 	mlx_hook(sl->mlx_win, 2, 1L, ft_key_hit, sl);
-	mlx_hook(sl->mlx_win, 3, 2L, ft_key_release, sl);
 	mlx_hook(sl->mlx_win, CLOSERED, 1L << 17, closebyredbutton, sl);
 	// mlx_hook(sl->mlx_win, 12, 0, ft_expose, display);
 	mlx_loop_hook(sl->mlx_ptr, key_loop, sl);
@@ -43,10 +42,9 @@ int		key_loop(t_long *sl)
 	|| sl->keyboard[LEFT] == 1 || sl->keyboard[BACK] == 1
 	|| sl->keyboard[ADVANCE] == 1)
     {
-        render(sl);
         pos_player(sl);
-        mlx_put_image_to_window(sl->mlx_ptr,
-		sl->mlx_win, sl->img, 0, 0);
+        // mlx_put_image_to_window(sl->mlx_ptr,
+		// sl->mlx_win, sl->img, 0, 0);
     }
     return(0);
 }
