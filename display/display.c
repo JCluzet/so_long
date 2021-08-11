@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/10 02:14:11 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 02:26:10 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 int display(t_long *sl)
 {
     createwindow(sl);
-    // render_calcul(sl);
-    initplayer(sl);
     loadtexture(sl);
     render(sl);
-    mlx_put_image_to_window(sl->mlx_ptr,
-		sl->mlx_win, sl->img, 0, 0);
+    // mlx_put_image_to_window(sl->mlx_ptr,
+	// 	sl->mlx_win, sl->img, 0, 0);
     pos_player(sl);
     go_hooking(sl);
     return(0);

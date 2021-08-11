@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:10:00 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/10 02:22:43 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 02:07:05 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,32 +64,6 @@ int     checkaremove(t_long *sl)
             write(1, " moves.\n", 9);
             freeandexit(sl);
         }
-    }
-    return(0);
-}
-
-int initplayer(t_long *sl)
-{
-    int x;
-    int y;
-
-    x = 0;
-    y = 0;
-    while (y < sl->Y)
-    {
-        while (x < sl->X)
-        {
-            if (sl->map[y][x] == 'P')
-            {
-                sl->player_x = x;
-                sl->player_y = y;
-            }
-            if (sl->map[y][x] == 'C')
-                sl->collectibletotal++;
-            x++;
-        }
-        x = 0;
-        y++;
     }
     return(0);
 }

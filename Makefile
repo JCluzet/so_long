@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/10 01:16:20 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/11 02:19:40 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,8 @@ MLX			=	libmlx.a
 SRCS			=	so_long.c	\
 					display/*	\
 					parsing/*	\
+					GNL/*		\
 					utils/*
-
-
 
 
 CC			=	clang
@@ -53,15 +52,13 @@ clean:
 			@ echo "\033[31m[Remove last version...]"
 			@ $(MAKE) -C mlx clean
 			@ rm -rf so_long.dSYM
-			@ rm $(BMP)
 endif
 
 ifeq ($(UNAME), Linux)
 clean:
 			@ echo "\033[31m[Remove last version...]"
 			@ $(MAKE) -C mlx_linux clean
-			@ rm -rf so_long.dSYM
-			@ rm $(BMP)
+			# @ rm -rf so_long.dSYM
 endif
 
 fclean:		clean

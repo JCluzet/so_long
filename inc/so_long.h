@@ -3,6 +3,8 @@
 
 # include <mlx.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <libc.h> // to remove
 # include <unistd.h>
 
 #  define ADVANCE 13
@@ -24,9 +26,14 @@ typedef struct		s_long
 	double			Ycase;
 	int				player_x;
 	int				player_y;
+	int				lastplayer_x;
+	int				lastplayer_y;
 	int				collectible;
 	int				collectibletotal;
 	int				move;
+	int				playerset;
+	int				exitset;
+	int				collectibleset;
 
 	char 			*pxl;
 	int				bpp;
@@ -54,16 +61,24 @@ int get_x_and_y(t_long *sl, char *argv);
 char *ft_strcpy(char *dest, char *src);
 int parsing(t_long *sl, char *argv);
 int stockmap(t_long *sl, char *argv);
-int	mallocmap(t_long *sl, char *argv);
+int	mallocmap(t_long *sl);
 int render_calcul(t_long *sl);
 int render(t_long *sl);
+int checkmap(t_long *sl);
+int	numberblank(char *str);
+int		get_next_line(int fd, char **line);
 int printtexture(t_long *sl, int starter_X, int starter_Y);
+int			showerror(t_long *sl, char *str);
+int	checkcubextension(char *str, t_long *sl);
 int pos_player(t_long *sl);
+void	ft_putstr(char *str);
+int		ft_strlen(const char *s);
 int initplayer(t_long *sl);
 int loadtexture(t_long *sl);
 int     gettextnum(int X, int Y, t_long *sl);
 int     moveplayer(int nb, t_long *sl);
 int     checkaremove(t_long *sl);
+int		stockline(t_long *sl, char *line, int nb);
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 int     displaymove(t_long *sl, int nb);
