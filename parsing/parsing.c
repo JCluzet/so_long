@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 02:51:58 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:50:49 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int stockline(t_long *sl, char *line, int nb)
     index = 0;
     while (line[index])
     {
+        sl->casetotal++;
         sl->map[nb][index] = line[index];
         if (line[index] == 'P')
         {
@@ -105,6 +106,8 @@ int     initvar(t_long *sl)
 	sl->keyboard[RIGHT] = 0;
 	sl->keyboard[ADVANCE] = 0;
     sl->bpp = 0;
+    sl->casein = 0;
+    sl->casetotal = 0;
     sl->Y = 0;
     sl->X = 0;
     sl->collectible = 0;

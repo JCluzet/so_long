@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:10:00 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 04:36:15 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 04:37:50 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int     moveplayer(int nb, t_long *sl)
     if (nb == 3)
         if (sl->map[sl->player_y][sl->player_x + 1] != '1')
             displaymove(sl, nb);
-    // checkaremove(sl);
     return(0);
 }
 

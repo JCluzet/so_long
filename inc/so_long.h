@@ -40,6 +40,8 @@ typedef struct		s_long
 	char 			*pxl;
 	int				bpp;
 	int				s_line;
+	double				casetotal;
+	double				casein;
 	int				ed;
 	void			*mlx_ptr;
 	void			*mlx_win;

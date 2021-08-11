@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 04:13:07 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 05:08:02 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int display(t_long *sl)
 
 int go_hooking(t_long *sl)
 {
-    mlx_do_key_autorepeatoff(sl->mlx_ptr);
+    // mlx_do_key_autorepeatoff(sl->mlx_ptr);
 	mlx_hook(sl->mlx_win, 2, 1L, ft_key_hit, sl);
 	mlx_hook(sl->mlx_win, CLOSERED, 1L << 17, closebyredbutton, sl);
 	// mlx_hook(sl->mlx_win, 12, 0, ft_expose, display);
@@ -60,6 +60,10 @@ int render(t_long *sl)
     {
         while(X < sl->X)
         {
+            sl->casein++;
+            write(1, "\b\b\b\b\b\b", 7);
+            ft_putnbr(sl->casein / sl->casetotal * 100);
+            write(1, "% \n", 1);
             gettextnum(X, Y, sl);
             printtexture(sl, X, Y);
             X++;
