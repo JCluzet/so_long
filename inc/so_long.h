@@ -4,7 +4,6 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <libc.h> // to remove
 # include <unistd.h>
 
 #  define ADVANCE 13
@@ -23,8 +22,7 @@ typedef struct		s_long
 	int				X;
 	int				Y;
 	double			Xcase;
-	clock_t			last_frame;
-	clock_t			next_frame;
+	int				oldX;
 	double			Ycase;
 	int				collectibleparse;
 	int				exitparse;

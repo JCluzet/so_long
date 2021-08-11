@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 15:46:15 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/11 23:06:07 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int parsing(t_long *sl, char *argv)
 {
-    initvar(sl);
     checkcubextension(argv, sl);
     get_x_and_y(sl, argv);
     mallocmap(sl);
@@ -31,9 +30,13 @@ int get_x_and_y(t_long *sl, char *filename)
 
     fd = open(filename, O_RDONLY);
     ret = get_next_line(fd, &line);
+    sl->oldX = ft_strlen(line);
     while (line[numberblank(line)] == '1' || line[numberblank(line)] == '0')
     {
         sl->X = ft_strlen(line);
+        if (sl->X != sl->oldX)
+            showerror(sl, "Map is not rectangular");
+        sl->oldX = sl->X;
         if (ret != -1)
             free(line);
         ret = get_next_line(fd, &line);
@@ -112,8 +115,6 @@ char    replacechar(char c)
 
 int     initvar(t_long *sl)
 {
-    sl->last_frame = clock();
-	sl->next_frame = 0;
     sl->keyboard[BACK] = 0;
 	sl->keyboard[RED_BUTTON] = 0;
 	sl->keyboard[ESC] = 0;
