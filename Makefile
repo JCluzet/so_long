@@ -6,7 +6,7 @@
 #    By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/08 21:27:58 by jcluzet           #+#    #+#              #
-#    Updated: 2021/08/11 05:35:24 by jcluzet          ###   ########.fr        #
+#    Updated: 2021/08/12 17:36:35 by jcluzet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,16 @@ clean:
 			@ rm -rf so_long.dSYM
 endif
 
+ifeq ($(UNAME), Darwin)
 fclean:		clean
 			@ rm $(MLX)
 			@ rm so_long
+endif
 
+ifeq ($(UNAME), Linux)
+fclean:		clean
+			@ rm so_long
+endif
 
 re:			fclean all
 
