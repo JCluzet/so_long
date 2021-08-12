@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../inc/get_next_line.h"
 
 static size_t	ft_bufflen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0' && s[i] != '\n')
@@ -23,7 +22,7 @@ static size_t	ft_bufflen(const char *s)
 	return (i);
 }
 
-char			*ft_alloc(size_t size)
+char	*ft_alloc(size_t size)
 {
 	char	*s;
 	char	*ptr;
@@ -38,7 +37,7 @@ char			*ft_alloc(size_t size)
 	return (s);
 }
 
-static char		*ft_save(char *lines, size_t *a)
+static char	*ft_save(char *lines, size_t *a)
 {
 	if (ft_strchr(lines, '\n'))
 	{
@@ -54,7 +53,7 @@ static char		*ft_save(char *lines, size_t *a)
 	return (NULL);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		buf[BUFFER_SIZE + 1];
 	char			*line_tmp;

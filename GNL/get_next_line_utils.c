@@ -6,16 +6,15 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 21:49:14 by mojacque          #+#    #+#             */
-/*   Updated: 2021/08/12 06:00:32 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 14:26:04 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../inc/get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
