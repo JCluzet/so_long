@@ -6,15 +6,15 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 21:58:23 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 01:35:45 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 00:36:22 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 
-int		ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -49,8 +49,7 @@ char	*ft_strjoin(char **line, char *buff)
 	int		u;
 
 	i = ft_strlen(buff);
-	if (!(tmp = malloc(i + ft_strlen(*line) + 1)))
-		return (NULL);
+	tmp = malloc(i + ft_strlen(*line) + 1);
 	i = 0;
 	u = 0;
 	while ((*line)[u])
@@ -66,7 +65,7 @@ char	*ft_strjoin(char **line, char *buff)
 		i++;
 		u++;
 	}
-	free((char*)*line);
+	free((char *)*line);
 	tmp[i] = '\0';
 	return (tmp);
 }

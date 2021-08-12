@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcluzet <jo@cluzet.fr>                     +#+  +:+       +#+        */
+/*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 21:57:48 by jcluzet           #+#    #+#             */
-/*   Updated: 2020/02/18 22:57:50 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 00:44:14 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #  define BUFFER_SIZE 10
 # endif
 
-typedef struct	s_gnl
+typedef struct s_gnl
 {
 	char		buff[BUFFER_SIZE + 1];
 	int			ret;

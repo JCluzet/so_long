@@ -6,19 +6,19 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 19:54:37 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 04:13:18 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 00:04:25 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int		ft_key_hit(int keycode, t_long *sl)
+int	ft_key_hit(int keycode, t_long *sl)
 {
 	sl->keyboard[keycode] = 1;
 	return (0);
 }
 
-int		ft_keyboard(t_long *sl)
+int	ft_keyboard(t_long *sl)
 {
 	if (sl->keyboard[ADVANCE])
 		moveplayer(1, sl);
@@ -33,7 +33,7 @@ int		ft_keyboard(t_long *sl)
 	return (0);
 }
 
-int		closebyredbutton(t_long *sl)
+int	closebyredbutton(t_long *sl)
 {
 	freeandexit(sl);
 	sl->keyboard[79] = 1;

@@ -6,13 +6,13 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 23:22:24 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/10 21:01:32 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 00:50:09 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int			freeandexit(t_long *sl)
+int	freeandexit(t_long *sl)
 {
 	if (sl->mlx_ptr != NULL)
 		mlx_destroy_window(sl->mlx_ptr, sl->mlx_win);
@@ -21,14 +21,14 @@ int			freeandexit(t_long *sl)
 	exit(0);
 }
 
-int			freemap(t_long *sl)
+int	freemap(t_long *sl)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (sl->maptofree == -1)
 		return (1);
-	while (i < sl->Y)
+	while (i < sl->y)
 	{
 		free(sl->map[i]);
 		i++;
@@ -38,12 +38,11 @@ int			freemap(t_long *sl)
 	return (1);
 }
 
-int			showerror(t_long *sl, char *str)
+int	showerror(t_long *sl, char *str)
 {
 	write(1, "\033[31mError\n\033[0;37m", 12);
 	ft_putstr(str);
 	write(1, "\n", 1);
-	// sl->errorbool = 1;
 	freeandexit(sl);
 	return (0);
 }

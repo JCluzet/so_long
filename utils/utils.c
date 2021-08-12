@@ -12,9 +12,9 @@
 
 #include "../inc/so_long.h"
 
-char *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -33,9 +33,9 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	ft_putchar(str[i]);
 	while (str[i])
 	{
@@ -61,11 +61,11 @@ void	ft_putnbr(int nb)
 
 int	numberblank(char *str)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (str[index] == '\t' || str[index] == '\r'
-	|| str[index] == '\v' || str[index] == ' ')
+		|| str[index] == '\v' || str[index] == ' ')
 		index++;
 	return (index);
 }

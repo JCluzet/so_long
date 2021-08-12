@@ -6,15 +6,15 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 18:13:44 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/11 01:33:30 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 00:42:50 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 
-int		ft_strchr(char *buff)
+int	ft_strchr(char *buff)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (buff[index])
@@ -26,9 +26,9 @@ int		ft_strchr(char *buff)
 	return (1);
 }
 
-int		readfile(int fd, char *buff, char *str)
+int	readfile(int fd, char *buff, char *str)
 {
-	int ret;
+	int	ret;
 
 	if (str)
 	{
@@ -43,13 +43,14 @@ int		readfile(int fd, char *buff, char *str)
 
 char	get_this_line(int fd, char **line, t_gnl gnl)
 {
-	static char *str;
+	static char	*str;
 
 	*line = ft_strdup("");
-	while ((gnl.ret = (readfile(fd, gnl.buff, str))) > 0)
+	gnl.ret = 1;
+	while (gnl.ret > 0)
 	{
-		if (str)
-			str = NULL;
+		gnl.ret = readfile(fd, gnl.buff, str);
+		str = NULL;
 		if (!(ft_strchr(gnl.buff)))
 		{
 			gnl.index = 0;
@@ -69,7 +70,7 @@ char	get_this_line(int fd, char **line, t_gnl gnl)
 	return (gnl.ret);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	t_gnl			gnl;
 
