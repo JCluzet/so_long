@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 05:38:03 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 05:39:47 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_long
 	void			*mlx_ptr;
 	void			*mlx_win;
 	void			*img;
-	int				keyboard[1000];
+	int				keyboard[70000];
 	int				maptofree;
 
 	int				bpp_text[10];
