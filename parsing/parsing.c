@@ -45,7 +45,7 @@ int	get_x_and_y(t_long *sl, char *filename)
 	if (sl->y == 0 || sl->x == 0)
 		showerror(sl, "Map is not correct or not well formated");
 	sl->yscreen = sl->y * 64;
-    free(line);
+	free(line);
 	sl->xscreen = sl->x * 64;
 	close(fd);
 	return (0);

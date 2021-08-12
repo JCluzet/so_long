@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 05:39:47 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 16:06:14 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ typedef struct s_long
 	unsigned int	color;
 }					t_long;
 
+char	*recurs(int depth, int *ret, int fd);
+int		get_next_line(int fd, char **out);
+size_t	ft_strlen(const char *s);
+
 int		get_x_and_y(t_long *sl, char *argv);
 char	*ft_strcpy(char *dest, char *src);
 int		parsing(t_long *sl, char *argv);
@@ -96,7 +100,6 @@ int		showerror(t_long *sl, char *str);
 int		checkcubextension(char *str, t_long *sl);
 int		pos_player(t_long *sl);
 void	ft_putstr(char *str);
-int		ft_strlen(const char *s);
 int		initplayer(t_long *sl);
 int		loadtexture(t_long *sl);
 int		gettextnum(int X, int Y, t_long *sl);

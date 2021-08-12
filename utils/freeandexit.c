@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 23:22:24 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 00:50:09 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 16:06:46 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,14 @@ int	showerror(t_long *sl, char *str)
 	write(1, "\n", 1);
 	freeandexit(sl);
 	return (0);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

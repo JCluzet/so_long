@@ -30,7 +30,7 @@ int	stockmap(t_long *sl, char *filename)
 		ret = get_next_line(fd, &line);
 		nb++;
 	}
-    free(line);
+	free(line);
 	return (0);
 }
 
