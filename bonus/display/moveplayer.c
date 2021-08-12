@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:10:00 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 17:51:37 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 20:21:18 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int	checkaremove(t_long *sl)
 			freeandexit(sl);
 		}
 	}
+    if (sl->map[sl->player_y][sl->player_x] == 'B')
+    {
+    	write(1, "\b\b\b\b\b\b\b\b\b\b", 11);
+		write(1, "You have lost...", 17);
+        freeandexit(sl);
+    }
 	return (0);
 }
 
