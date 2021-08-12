@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 17:53:17 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:54:41 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ int	render(t_long *sl)
 		y++;
 	}
 	write(1, "\b\b\b\b\b\b\b\b\b\b", 11);
-	return (0);
+	write(1, "MOVE : ", 8);
+    ft_putnbr(sl->move);
+    return (0);
 }
 
 int	createwindow(t_long *sl)
