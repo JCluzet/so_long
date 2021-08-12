@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:07:13 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 01:17:50 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 06:06:28 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	stockmap(t_long *sl, char *filename)
 		ret = get_next_line(fd, &line);
 		nb++;
 	}
+    free(line);
 	return (0);
 }
 

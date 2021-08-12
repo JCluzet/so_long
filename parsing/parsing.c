@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 01:28:50 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 06:06:12 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	get_x_and_y(t_long *sl, char *filename)
 	if (sl->y == 0 || sl->x == 0)
 		showerror(sl, "Map is not correct or not well formated");
 	sl->yscreen = sl->y * 64;
+    free(line);
 	sl->xscreen = sl->x * 64;
 	close(fd);
 	return (0);
