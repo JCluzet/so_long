@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:48:49 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 20:25:21 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_long
 	int				x;
 	int				y;
 	int				oldx;
+    int             dropbomb;
 	int				collectibleparse;
 	int				exitparse;
 	int				player_x;

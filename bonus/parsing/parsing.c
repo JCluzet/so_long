@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:34:19 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 20:08:48 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 20:25:12 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	initvar(t_long *sl)
 	sl->keyboard[RIGHT] = 0;
 	sl->keyboard[ADVANCE] = 0;
 	sl->bpp = 0;
+    sl->dropbomb = 0;
 	sl->casein = 0;
     sl->spritebomb = 5;
 	sl->casetotal = 0;

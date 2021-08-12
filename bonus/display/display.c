@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:54:54 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 20:28:07 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ int	go_hooking(t_long *sl)
 
 int	key_loop(t_long *sl)
 {
-    fixbomb(sl);
+    if ((sl->dropbomb % 5000) == 0)
+        fixbomb(sl);
+    sl->dropbomb++;
+    if (sl->dropbomb == 100000)
+        sl->dropbomb = 0;
 	ft_keyboard(sl);
 	if (sl->keyboard[ESC] == 1 || sl->keyboard[RIGHT] == 1
 		|| sl->keyboard[LEFT] == 1 || sl->keyboard[BACK] == 1
