@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 04:15:29 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:21:47 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int	printtexture(t_long *sl, int starter_X, int starter_Y)
 					* (sl->bpp_text[sl->actualtext] / 8));
 			if (sl->color != 0)
 			{
-				mlx_pixel_put(sl->mlx_ptr, sl->mlx_win, starter_X
-					* 64 + x, starter_Y * 64 + y, sl->color);
+				put_pxl(sl, starter_X * 64 + x, starter_Y * 64 + y, sl->color);
 			}
 			x++;
 		}

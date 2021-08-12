@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 23:22:24 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 16:06:46 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:30:17 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	freeandexit(t_long *sl)
 	if (sl->mlx_ptr != NULL)
 		mlx_destroy_window(sl->mlx_ptr, sl->mlx_win);
 	freemap(sl);
-	write(1, "\n\033[31m[ so_long closed Successfully ]\n", 39);
+	write(1, "\n\033[31m[ so_long closed successfully ]\n", 39);
 	exit(0);
 }
 

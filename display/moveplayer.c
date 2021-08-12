@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 01:10:00 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 00:06:11 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:28:02 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	moveplayer(int nb, t_long *sl)
 
 int	displaymove(t_long *sl, int nb)
 {
-	write(1, "\b\b\b\b\b\b\b\b\b\b", 11);
+	write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b", 21);
 	if (nb == 1)
 		sl->player_y--;
 	if (nb == -1)
@@ -41,7 +41,7 @@ int	displaymove(t_long *sl, int nb)
 	if (nb == 3)
 		sl->player_x++;
 	sl->move++;
-	write(1, "Move : ", 8);
+	write(1, "        MOVE : ", 16);
 	ft_putnbr(sl->move);
 	checkaremove(sl);
 	return (0);

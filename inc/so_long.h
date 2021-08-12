@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 16:06:14 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:25:42 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int		get_next_line(int fd, char **out);
 size_t	ft_strlen(const char *s);
 
 int		get_x_and_y(t_long *sl, char *argv);
+int		visible(t_long *sl);
 char	*ft_strcpy(char *dest, char *src);
 int		parsing(t_long *sl, char *argv);
 int		stockmap(t_long *sl, char *argv);
