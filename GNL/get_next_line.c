@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 21:49:09 by mojacque          #+#    #+#             */
-/*   Updated: 2021/08/12 06:00:11 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 15:23:19 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,24 @@ int	get_next_line(int fd, char **line)
 	a = 1;
 	if (fd < 0 || BUFFER_SIZE < 1 || line == NULL || read(fd, buf, 0) < 0)
 		return (-1);
-	if (lines == NULL && (lines = ft_alloc(0)) == NULL)
-		return (-1);
-	while (ft_strchr(lines, '\n') == NULL
-		&& (end_buff = read(fd, buf, BUFFER_SIZE)) > 0)
+	if (lines == NULL)
 	{
-		buf[end_buff] = '\0';
-		line_tmp = lines;
-		lines = ft_strjoin(line_tmp, buf);
-		free(line_tmp);
+		lines = ft_alloc(0);
+		if (lines == NULL)
+			return (-1);
+	}
+	while (ft_strchr(lines, '\n') == NULL)
+	{
+		end_buff = read(fd, buf, BUFFER_SIZE);
+		if (end_buff > 0)
+		{
+			buf[end_buff] = '\0';
+			line_tmp = lines;
+			lines = ft_strjoin(line_tmp, buf);
+			free(line_tmp);
+		}
+		else
+			break ;
 	}
 	*line = ft_substr(lines, 0, ft_bufflen(lines));
 	if ((ft_save(lines, &a) != NULL) && a == 1)
