@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 17:44:46 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:47:24 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	display(t_long *sl)
 	loadtexture(sl);
 	render(sl);
 	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
+    write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b", 14);
 	write(1, "        MOVE : 0", 16);
 	pos_player(sl);
 	mlx_put_image_to_window(sl->mlx_ptr,
