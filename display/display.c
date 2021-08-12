@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 18:01:15 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 18:02:04 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	display(t_long *sl)
 	createwindow(sl);
 	loadtexture(sl);
 	render(sl);
-	write(1, "\033[32m[ so_long launch successfully ]\n", 38);
+	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
 	write(1, "MOVE : ", 8);
     ft_putnbr(sl->move);
 	pos_player(sl);
