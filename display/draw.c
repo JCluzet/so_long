@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 00:58:24 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 17:25:54 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 17:35:33 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	put_pxl(t_long *sl, int x, int y, unsigned int c)
 
 int	visible(t_long *sl)
 {
+	render(sl);
+	pos_player(sl);
 	mlx_put_image_to_window(sl->mlx_ptr,
 		sl->mlx_win, sl->img, 0, 0);
 	return (0);
