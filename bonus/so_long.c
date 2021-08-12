@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:21:29 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 00:26:03 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 20:43:44 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	initvar(&solong);
 	if (argc == 1)
 		showerror(&solong, "Missing map (./so_long maps/intra.ber)");
+    if (argc > 2)
+        showerror(&solong, "Too many arguments");
 	parsing(&solong, argv[1]);
 	display(&solong);
 	return (0);
