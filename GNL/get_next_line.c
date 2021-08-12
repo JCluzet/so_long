@@ -5,78 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 18:13:44 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 05:54:51 by jcluzet          ###   ########.fr       */
+/*   Created: 2019/12/02 21:49:09 by mojacque          #+#    #+#             */
+/*   Updated: 2021/08/12 06:00:11 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../inc/get_next_line.h"
 
-int	ft_strchr(char *buff)
+static size_t	ft_bufflen(const char *s)
 {
-	int	index;
+	int i;
 
-	index = 0;
-	while (buff[index])
+	i = 0;
+	while (s[i] != '\0' && s[i] != '\n')
+		i++;
+	return (i);
+}
+
+char			*ft_alloc(size_t size)
+{
+	char	*s;
+	char	*ptr;
+
+	s = (char *)malloc(sizeof(char) * (size + 1));
+	if (s == NULL)
+		return (NULL);
+	size = size + 1;
+	ptr = s;
+	while (size-- > 0)
+		*ptr++ = '\0';
+	return (s);
+}
+
+static char		*ft_save(char *lines, size_t *a)
+{
+	if (ft_strchr(lines, '\n'))
 	{
-		if (buff[index] == '\n')
-			return (0);
-		index++;
+		ft_strcpy(lines, ft_strchr(lines, '\n') + 1);
+		return (lines);
 	}
-	return (1);
-}
-
-int	readfile(int fd, char *buff, char *str)
-{
-	int	ret;
-
-	if (str)
+	if (ft_bufflen(lines) > 0)
 	{
-		ft_strcpy(buff, str);
-		free(str);
-		return (1);
+		ft_strcpy(lines, ft_strchr(lines, '\0'));
+		*a = 0;
+		return (lines);
 	}
-	ret = read(fd, buff, BUFFER_SIZE);
-	buff[ret] = '\0';
-	return (ret);
+	return (NULL);
 }
 
-char	get_this_line(int fd, char **line, t_gnl gnl)
+int				get_next_line(int fd, char **line)
 {
-	static char	*str;
+	static char		buf[BUFFER_SIZE + 1];
+	char			*line_tmp;
+	static char		*lines = NULL;
+	int				end_buff;
+	size_t			a;
 
-	*line = ft_strdup("");
-	gnl.ret = 1;
-	while (gnl.ret > 0)
-	{
-		gnl.ret = readfile(fd, gnl.buff, str);
-		str = NULL;
-		if (!(ft_strchr(gnl.buff)))
-		{
-			gnl.index = 0;
-			while (gnl.buff[gnl.index] != '\n')
-				gnl.index++;
-			gnl.buff[gnl.index] = '\0';
-			if (!str)
-				str = ft_strdup(gnl.buff + gnl.index + 1);
-			*line = ft_strjoin(line, gnl.buff);
-            free(line);
-			return (1);
-		}
-		else
-			*line = ft_strjoin(line, gnl.buff);
-    }
-	if (*line == NULL)
-		*line = ft_strdup("");
-	return (gnl.ret);
-}
-
-int	get_next_line(int fd, char **line)
-{
-	t_gnl			gnl;
-
-	gnl.index = 0;
-	if (!line || BUFFER_SIZE < 1 || read(fd, gnl.buff, 0) < 0)
+	a = 1;
+	if (fd < 0 || BUFFER_SIZE < 1 || line == NULL || read(fd, buf, 0) < 0)
 		return (-1);
-	return (get_this_line(fd, line, gnl));
+	if (lines == NULL && (lines = ft_alloc(0)) == NULL)
+		return (-1);
+	while (ft_strchr(lines, '\n') == NULL
+		&& (end_buff = read(fd, buf, BUFFER_SIZE)) > 0)
+	{
+		buf[end_buff] = '\0';
+		line_tmp = lines;
+		lines = ft_strjoin(line_tmp, buf);
+		free(line_tmp);
+	}
+	*line = ft_substr(lines, 0, ft_bufflen(lines));
+	if ((ft_save(lines, &a) != NULL) && a == 1)
+		return (1);
+	free(lines);
+	lines = NULL;
+	return (0);
 }

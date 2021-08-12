@@ -5,16 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/12 21:58:23 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 00:36:22 by jcluzet          ###   ########.fr       */
+/*   Created: 2019/12/02 21:49:14 by mojacque          #+#    #+#             */
+/*   Updated: 2021/08/12 06:00:32 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../inc/get_next_line.h"
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -22,50 +23,60 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*moulitruc;
-	int		i;
-	int		u;
+	char	*str;
 
-	i = 0;
-	u = (int)ft_strlen(s);
-	moulitruc = malloc(sizeof(char) * u + 1);
-	if (moulitruc == NULL)
-		return (NULL);
-	while (s[i])
+	str = (char *)s;
+	while (*str != c)
 	{
-		moulitruc[i] = s[i];
-		i++;
+		if (*str == '\0')
+			return (NULL);
+		str++;
 	}
-	moulitruc[i] = '\0';
-	return (moulitruc);
+	return (str);
 }
 
-char	*ft_strjoin(char **line, char *buff)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*tmp;
-	int		i;
-	int		u;
+	size_t	i;
+	size_t	j;
+	char	*dest;
 
-	i = ft_strlen(buff);
-	tmp = malloc(i + ft_strlen(*line) + 1);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (dest == NULL)
+		return (NULL);
+	i = -1;
+	while (s1[++i] != '\0')
+		dest[i] = s1[i];
+	j = 0;
+	while (s2[j] != '\0')
+		dest[i++] = s2[j++];
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*dest;
+
+	if (s == NULL)
+		return (NULL);
+	dest = malloc(sizeof(char) * (len + 1));
+	if (dest == NULL)
+		return (NULL);
 	i = 0;
-	u = 0;
-	while ((*line)[u])
+	if (!(start > ft_strlen(s)))
 	{
-		tmp[i] = (*line)[u];
-		i++;
-		u++;
+		while (i < len && s[i + start])
+		{
+			dest[i] = s[i + start];
+			i++;
+		}
 	}
-	u = 0;
-	while (buff[u])
-	{
-		tmp[i] = buff[u];
-		i++;
-		u++;
-	}
-	free((char *)*line);
-	tmp[i] = '\0';
-	return (tmp);
+	dest[i] = '\0';
+	return (dest);
 }

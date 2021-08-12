@@ -5,35 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/12 21:57:48 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 00:44:14 by jcluzet          ###   ########.fr       */
+/*   Created: 2019/12/02 21:48:57 by mojacque          #+#    #+#             */
+/*   Updated: 2021/08/12 05:59:15 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
+
+int				get_next_line(int fd, char **line);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strchr(const char *s, int c);
+size_t			ft_strlen(const char *s);
+char			*ft_alloc(size_t size);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strcpy(char *dest, char *src);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
-
-typedef struct s_gnl
-{
-	char		buff[BUFFER_SIZE + 1];
-	int			ret;
-	int			index;
-}				t_gnl;
-
-int				get_next_line(int fd, char **line);
-char			*ft_strjoin(char **line, char *buff);
-int				readfile(int fd, char *buff, char *str);
-char			get_this_line(int fd, char **line, t_gnl gnl);
-char			*ft_strdup(const char *s);
-int				ft_strchr(char *buff);
-int				ft_strlen(const char *s);
-char			*ft_strcpy(char *dst, const char *src);
 
 #endif
