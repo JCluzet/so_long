@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 18:13:44 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 05:50:38 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 05:54:51 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	get_this_line(int fd, char **line, t_gnl gnl)
 			if (!str)
 				str = ft_strdup(gnl.buff + gnl.index + 1);
 			*line = ft_strjoin(line, gnl.buff);
+            free(line);
 			return (1);
 		}
 		else
@@ -67,7 +68,6 @@ char	get_this_line(int fd, char **line, t_gnl gnl)
     }
 	if (*line == NULL)
 		*line = ft_strdup("");
-    free(line);
 	return (gnl.ret);
 }
 
