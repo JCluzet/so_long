@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:41:15 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 19:48:49 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,20 @@ typedef struct s_long
 	double			casetotal;
 	double			casein;
 	int				ed;
+    int             spritebomb;
 	void			*mlx_ptr;
 	void			*mlx_win;
 	void			*img;
 	int				keyboard[70000];
 	int				maptofree;
 
-	int				bpp_text[10];
-	int				sline_text[10];
-	int				ed_text[10];
-	char			*ptr_text[10];
-	void			*text[10];
-	int				widthtext[10];
-	int				heighttext[10];
+	int				bpp_text[16];
+	int				sline_text[16];
+	int				ed_text[16];
+	char			*ptr_text[16];
+	void			*text[16];
+	int				widthtext[16];
+	int				heighttext[16];
 	int				actualtext;
 	unsigned int	color;
 }					t_long;
@@ -86,8 +87,11 @@ size_t	ft_strlen(const char *s);
 
 int		get_x_and_y(t_long *sl, char *argv);
 int		visible(t_long *sl);
+int fixbomb(t_long *sl);
+int	gettextnumbomb(t_long *sl);
 char	*ft_strcpy(char *dest, char *src);
 int		parsing(t_long *sl, char *argv);
+int	loadtexture2(t_long *sl);
 int		stockmap(t_long *sl, char *argv);
 int		mallocmap(t_long *sl);
 int		render_calcul(t_long *sl);

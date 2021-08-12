@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 00:58:24 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:48:09 by jcluzet          ###   ########.fr       */
+/*   Created: 2020/08/11 19:54:37 by jcluzet           #+#    #+#             */
+/*   Updated: 2021/08/12 19:54:48 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	put_pxl(t_long *sl, int x, int y, unsigned int c)
+int	ft_key_hit(int keycode, t_long *sl)
 {
-	char		*dest;
-
-	if (y >= sl->yscreen || x >= sl->xscreen || x < 0 \
-	|| y < 0)
-		return (0);
-	dest = sl->pxl + sl->s_line * y + x * (sl->bpp / 8);
-	*(unsigned int *)dest = c;
+	sl->keyboard[keycode] = 1;
 	return (0);
 }
 
-int	visible(t_long *sl)
+int	ft_keyboard(t_long *sl)
 {
-	render(sl);
-	pos_player(sl);
-	mlx_put_image_to_window(sl->mlx_ptr,
-		sl->mlx_win, sl->img, 0, 0);
+	if (sl->keyboard[ADVANCE])
+		moveplayer(1, sl);
+	if (sl->keyboard[BACK])
+		moveplayer(-1, sl);
+	if (sl->keyboard[LEFT])
+		moveplayer(2, sl);
+	if (sl->keyboard[RIGHT])
+		moveplayer(3, sl);
+	if (sl->keyboard[ESC] == 1 || sl->keyboard[RED_BUTTON] == 1)
+		freeandexit(sl);
+	return (0);
+}
+
+int	closebyredbutton(t_long *sl)
+{
+	freeandexit(sl);
+	sl->keyboard[79] = 1;
 	return (0);
 }

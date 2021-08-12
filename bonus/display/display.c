@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:44:25 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 19:54:54 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	display(t_long *sl)
 	createwindow(sl);
 	loadtexture(sl);
 	render(sl);
+    fixbomb(sl);
 	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
 	write(1, "MOVE : ", 8);
     ft_putnbr(sl->move);
@@ -39,6 +40,7 @@ int	go_hooking(t_long *sl)
 
 int	key_loop(t_long *sl)
 {
+    fixbomb(sl);
 	ft_keyboard(sl);
 	if (sl->keyboard[ESC] == 1 || sl->keyboard[RIGHT] == 1
 		|| sl->keyboard[LEFT] == 1 || sl->keyboard[BACK] == 1
@@ -88,3 +90,4 @@ int	createwindow(t_long *sl)
 			sl->yscreen, "42 so_long JCluzet");
 	return (0);
 }
+
