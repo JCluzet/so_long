@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 01:17:24 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/12 05:38:03 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,23 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-# define ADVANCE 13
-# define BACK 1
-# define RIGHT 2
-# define LEFT 0
-# define ESC 53
-# define RED_BUTTON 79
-# define CLOSERED 17
+# if defined(__APPLE__) && defined(__MACH__)
+#  define ADVANCE 13
+#  define BACK 1
+#  define RIGHT 2
+#  define LEFT 0
+#  define ESC 53
+#  define RED_BUTTON 79
+#  define CLOSERED 17
+# else
+#  define ADVANCE 119
+#  define BACK 115
+#  define RIGHT 100
+#  define LEFT 97
+#  define ESC 65307
+#  define RED_BUTTON 79
+#  define CLOSERED 33
+# endif
 
 typedef struct s_long
 {
