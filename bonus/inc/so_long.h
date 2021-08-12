@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 20:25:21 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 00:53:59 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ size_t	ft_strlen(const char *s);
 int		get_x_and_y(t_long *sl, char *argv);
 int		visible(t_long *sl);
 int fixbomb(t_long *sl);
+char			*ft_itoa(int n);
 int	gettextnumbomb(t_long *sl);
 char	*ft_strcpy(char *dest, char *src);
 int		parsing(t_long *sl, char *argv);
@@ -97,6 +98,7 @@ int		stockmap(t_long *sl, char *argv);
 int		mallocmap(t_long *sl);
 int		render_calcul(t_long *sl);
 int		render(t_long *sl);
+size_t	ft_power(int n, int p);
 void	floodandfill2(t_long *sl, int mapy, int mapx);
 int		checkmap(t_long *sl);
 int		numberblank(char *str);

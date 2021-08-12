@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 20:28:07 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:04:03 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	key_loop(t_long *sl)
 		pos_player(sl);
 		mlx_put_image_to_window(sl->mlx_ptr,
 			sl->mlx_win, sl->img, 0, 0);
+        mlx_string_put(sl->mlx_ptr,sl->mlx_win, 10, 20, 0xffffff, ft_itoa(sl->move));
 	}
 	return (0);
 }
