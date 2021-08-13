@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 02:46:45 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 03:05:46 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,17 @@ int	go_hooking(t_long *sl)
 
 int	key_loop(t_long *sl)
 {
+	char	*line;
+
+	line = ft_itoa(sl->move);
 	if ((sl->dropbomb % 5000) == 0)
+	{
 		fixbomb(sl);
+		mlx_string_put(sl->mlx_ptr, sl->mlx_win, 10, 20,
+			0xffffff, line);
+		free(line);
+	}
 	sl->dropbomb++;
-	if (sl->dropbomb == 100000)
-		sl->dropbomb = 0;
 	ft_keyboard(sl);
 	if (sl->keyboard[ESC] == 1 || sl->keyboard[RIGHT] == 1
 		|| sl->keyboard[LEFT] == 1 || sl->keyboard[BACK] == 1
@@ -52,7 +58,8 @@ int	key_loop(t_long *sl)
 		mlx_put_image_to_window(sl->mlx_ptr,
 			sl->mlx_win, sl->img, 0, 0);
 		mlx_string_put(sl->mlx_ptr, sl->mlx_win, 10, 20, 0xffffff,
-			ft_itoa(sl->move));
+			line);
+		free(line);
 	}
 	return (0);
 }
