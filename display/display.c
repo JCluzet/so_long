@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 01:23:43 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 04:48:18 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,6 @@ int	render(t_long *sl)
 		while (x < sl->x)
 		{
 			sl->casein++;
-			write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b", 14);
-			ft_putnbr(sl->casein / sl->casetotal * 100);
-			write(1, "% \n", 1);
 			gettextnum(x, y, sl);
 			printtexture(sl, x, y);
 			x++;
@@ -73,7 +70,6 @@ int	render(t_long *sl)
 		x = 0;
 		y++;
 	}
-	write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b", 23);
 	return (0);
 }
 
