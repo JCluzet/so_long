@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:07:13 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:24:01 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:20:51 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	stockline(t_long *sl, char *line, int nb)
 		if (line[index] == 'C')
 			sl->collectibletotal++;
 		if (line[index] != 'P' && line[index] != 'E' && line[index]
-			!= 'C' && line[index] != '1' && line[index] != '0' && line[index] != 'B')
+			!= 'C' && line[index] != '1'
+			&& line[index] != '0' && line[index] != 'B')
 			showerror(sl, "Wrong character in map");
 		index++;
 	}

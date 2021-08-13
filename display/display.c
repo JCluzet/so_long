@@ -6,11 +6,11 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:44:25 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:23:43 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#	include "../inc/so_long.h"
+#include "../inc/so_long.h"
 
 int	display(t_long *sl)
 {
@@ -19,7 +19,7 @@ int	display(t_long *sl)
 	render(sl);
 	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
 	write(1, "MOVE : ", 8);
-    ft_putnbr(sl->move);
+	ft_putnbr(sl->move);
 	pos_player(sl);
 	mlx_put_image_to_window(sl->mlx_ptr,
 		sl->mlx_win, sl->img, 0, 0);
@@ -74,7 +74,7 @@ int	render(t_long *sl)
 		y++;
 	}
 	write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b", 23);
-    return (0);
+	return (0);
 }
 
 int	createwindow(t_long *sl)

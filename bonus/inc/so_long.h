@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 00:53:59 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:57:08 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_long
 	int				x;
 	int				y;
 	int				oldx;
-    int             dropbomb;
+	int				dropbomb;
 	int				collectibleparse;
 	int				exitparse;
 	int				player_x;
@@ -64,7 +64,7 @@ typedef struct s_long
 	double			casetotal;
 	double			casein;
 	int				ed;
-    int             spritebomb;
+	int				spritebomb;
 	void			*mlx_ptr;
 	void			*mlx_win;
 	void			*img;
@@ -88,12 +88,13 @@ size_t	ft_strlen(const char *s);
 
 int		get_x_and_y(t_long *sl, char *argv);
 int		visible(t_long *sl);
-int fixbomb(t_long *sl);
-char			*ft_itoa(int n);
-int	gettextnumbomb(t_long *sl);
+int		fixbomb(t_long *sl);
+char	*ft_itoa(int n);
+int		gettextnumbomb(t_long *sl);
 char	*ft_strcpy(char *dest, char *src);
 int		parsing(t_long *sl, char *argv);
-int	loadtexture2(t_long *sl);
+int		loadtexture2(t_long *sl);
+int		loadtexture3(t_long *sl);
 int		stockmap(t_long *sl, char *argv);
 int		mallocmap(t_long *sl);
 int		render_calcul(t_long *sl);

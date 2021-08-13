@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:09:55 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 19:25:12 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:19:15 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	checkcubextension(char *str, t_long *sl)
 int	floodandfill(t_long *sl, int mapy, int mapx)
 {
 	if (sl->map[mapy][mapx] == 'a' ||
-	sl->map[mapy][mapx] == 'c' || sl->map[mapy][mapx] == 'd'
-	|| sl->map[mapy][mapx] == 'e' || sl->map[mapy][mapx] == 'f')
+			sl->map[mapy][mapx] == 'c' || sl->map[mapy][mapx] == 'd'
+			|| sl->map[mapy][mapx] == 'e' || sl->map[mapy][mapx] == 'f')
 	{
 		if (checkaround(mapx, mapy, sl) == 0)
 			showerror(sl, "Map is not surrounded/closed by wall");
@@ -66,8 +66,8 @@ void	floodandfill2(t_long *sl, int mapy, int mapx)
 		sl->map[mapy][mapx] = 'C';
 		sl->collectibleparse++;
 	}
-    if (sl->map[mapy][mapx] == 'f')
-        sl->map[mapy][mapx] = 'B';
+	if (sl->map[mapy][mapx] == 'f')
+		sl->map[mapy][mapx] = 'B';
 }
 
 int	checkaround(int mapx, int mapy, t_long *sl)

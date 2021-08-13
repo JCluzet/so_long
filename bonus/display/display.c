@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#	include "../inc/so_long.h"
+#include "../inc/so_long.h"
 
 int	display(t_long *sl)
 {
 	createwindow(sl);
 	loadtexture(sl);
 	render(sl);
-    fixbomb(sl);
+	fixbomb(sl);
 	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
 	write(1, "MOVE : ", 8);
-    ft_putnbr(sl->move);
+	ft_putnbr(sl->move);
 	pos_player(sl);
 	mlx_put_image_to_window(sl->mlx_ptr,
 		sl->mlx_win, sl->img, 0, 0);
@@ -40,11 +40,11 @@ int	go_hooking(t_long *sl)
 
 int	key_loop(t_long *sl)
 {
-    if ((sl->dropbomb % 5000) == 0)
-        fixbomb(sl);
-    sl->dropbomb++;
-    if (sl->dropbomb == 100000)
-        sl->dropbomb = 0;
+	if ((sl->dropbomb % 5000) == 0)
+		fixbomb(sl);
+	sl->dropbomb++;
+	if (sl->dropbomb == 100000)
+		sl->dropbomb = 0;
 	ft_keyboard(sl);
 	if (sl->keyboard[ESC] == 1 || sl->keyboard[RIGHT] == 1
 		|| sl->keyboard[LEFT] == 1 || sl->keyboard[BACK] == 1
@@ -53,7 +53,8 @@ int	key_loop(t_long *sl)
 		pos_player(sl);
 		mlx_put_image_to_window(sl->mlx_ptr,
 			sl->mlx_win, sl->img, 0, 0);
-        mlx_string_put(sl->mlx_ptr,sl->mlx_win, 10, 20, 0xffffff, ft_itoa(sl->move));
+		mlx_string_put(sl->mlx_ptr, sl->mlx_win, 10, 20, 0xffffff,
+			ft_itoa(sl->move));
 	}
 	return (0);
 }
@@ -81,7 +82,7 @@ int	render(t_long *sl)
 		y++;
 	}
 	write(1, "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b", 23);
-    return (0);
+	return (0);
 }
 
 int	createwindow(t_long *sl)
@@ -95,4 +96,3 @@ int	createwindow(t_long *sl)
 			sl->yscreen, "42 so_long JCluzet");
 	return (0);
 }
-

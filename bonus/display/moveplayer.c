@@ -65,12 +65,12 @@ int	checkaremove(t_long *sl)
 			freeandexit(sl);
 		}
 	}
-    if (sl->map[sl->player_y][sl->player_x] == 'B')
-    {
-    	write(1, "\b\b\b\b\b\b\b\b\b\b", 11);
+	if (sl->map[sl->player_y][sl->player_x] == 'B')
+	{
+		write(1, "\b\b\b\b\b\b\b\b\b\b", 11);
 		write(1, "You have lost...", 17);
-        freeandexit(sl);
-    }
+		freeandexit(sl);
+	}
 	return (0);
 }
 

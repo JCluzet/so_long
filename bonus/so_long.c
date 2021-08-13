@@ -19,8 +19,8 @@ int	main(int argc, char **argv)
 	initvar(&solong);
 	if (argc == 1)
 		showerror(&solong, "Missing map (./so_long maps/intra.ber)");
-    if (argc > 2)
-        showerror(&solong, "Too many arguments");
+	if (argc > 2)
+		showerror(&solong, "Too many arguments");
 	parsing(&solong, argv[1]);
 	display(&solong);
 	return (0);

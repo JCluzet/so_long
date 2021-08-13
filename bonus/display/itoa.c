@@ -6,11 +6,11 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 00:04:56 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 00:53:55 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:26:46 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/so_long.h"
+#include "../inc/so_long.h"
 
 size_t	ft_power(int n, int p)
 {
@@ -27,9 +27,9 @@ size_t	ft_power(int n, int p)
 	return (result);
 }
 
-static	int		ft_val(int n)
+static	int	ft_val(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n == 0)
@@ -42,7 +42,7 @@ static	int		ft_val(int n)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		i;
 	int		j;
@@ -51,7 +51,7 @@ char			*ft_itoa(int n)
 
 	i = 0;
 	j = 0;
-	tab = (char*)malloc(sizeof(*tab) * (ft_val(n) + 1));
+	tab = (char *)malloc(sizeof(*tab) * (ft_val(n) + 1));
 	if (!tab)
 		return (NULL);
 	if (n == -2147483648)

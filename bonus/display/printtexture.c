@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/12 20:11:44 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 02:16:18 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	loadtexture(t_long *sl)
 			&sl->widthtext[4], &sl->heighttext[4]);
 	sl->ptr_text[4] = mlx_get_data_addr(sl->text[4],
 			&(sl->bpp_text[4]), &(sl->sline_text[4]), &(sl->ed_text[4]));
-    loadtexture2(sl);
+	loadtexture2(sl);
+	loadtexture3(sl);
 	return (0);
 }
 
@@ -81,11 +82,11 @@ int	gettextnum(int X, int Y, t_long *sl)
 
 int	gettextnumbomb(t_long *sl)
 {
-    if (sl->spritebomb == 15)
-        sl->spritebomb = 5;
-    sl->actualtext = sl->spritebomb;
-    sl->spritebomb++;
-    return (0);
+	if (sl->spritebomb == 15)
+		sl->spritebomb = 5;
+	sl->actualtext = sl->spritebomb;
+	sl->spritebomb++;
+	return (0);
 }
 
 int	loadtexture2(t_long *sl)
@@ -110,25 +111,8 @@ int	loadtexture2(t_long *sl)
 			&sl->widthtext[9], &sl->heighttext[9]);
 	sl->ptr_text[9] = mlx_get_data_addr(sl->text[9],
 			&(sl->bpp_text[9]), &(sl->sline_text[9]), &(sl->ed_text[9]));
-	sl->text[10] = mlx_xpm_file_to_image(sl->mlx_ptr, "./textures/sprites/6.xpm",
-			&sl->widthtext[10], &sl->heighttext[10]);
-	sl->ptr_text[10] = mlx_get_data_addr(sl->text[10],
-			&(sl->bpp_text[10]), &(sl->sline_text[10]), &(sl->ed_text[10]));
-	sl->text[11] = mlx_xpm_file_to_image(sl->mlx_ptr, "./textures/sprites/7.xpm",
-			&sl->widthtext[11], &sl->heighttext[11]);
-	sl->ptr_text[11] = mlx_get_data_addr(sl->text[11],
-			&(sl->bpp_text[11]), &(sl->sline_text[11]), &(sl->ed_text[11]));
-	sl->text[12] = mlx_xpm_file_to_image(sl->mlx_ptr, "./textures/sprites/8.xpm",
-			&sl->widthtext[12], &sl->heighttext[12]);
-	sl->ptr_text[12] = mlx_get_data_addr(sl->text[12],
-			&(sl->bpp_text[12]), &(sl->sline_text[12]), &(sl->ed_text[12]));
-	sl->text[13] = mlx_xpm_file_to_image(sl->mlx_ptr, "./textures/sprites/9.xpm",
-			&sl->widthtext[13], &sl->heighttext[13]);
-	sl->ptr_text[13] = mlx_get_data_addr(sl->text[13],
-			&(sl->bpp_text[13]), &(sl->sline_text[13]), &(sl->ed_text[13]));
-	sl->text[14] = mlx_xpm_file_to_image(sl->mlx_ptr, "./textures/sprites/10.xpm",
-			&sl->widthtext[14], &sl->heighttext[14]);
-	sl->ptr_text[14] = mlx_get_data_addr(sl->text[14],
-			&(sl->bpp_text[14]), &(sl->sline_text[14]), &(sl->ed_text[14]));
+	sl->text[10] = mlx_xpm_file_to_image(sl->mlx_ptr,
+			"./textures/sprites/6.xpm", &sl->widthtext[10],
+			&sl->heighttext[10]);
 	return (0);
 }

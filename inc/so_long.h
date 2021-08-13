@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 01:03:20 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 00:08:56 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 01:52:07 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		pos_player(t_long *sl);
 void	ft_putstr(char *str);
 int		initplayer(t_long *sl);
 int		loadtexture(t_long *sl);
+int		loadtexture3(t_long *sl);
 int		gettextnum(int X, int Y, t_long *sl);
 int		moveplayer(int nb, t_long *sl);
 int		checkaremove(t_long *sl);
