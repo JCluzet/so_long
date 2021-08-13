@@ -6,7 +6,7 @@
 /*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 21:47:31 by jcluzet           #+#    #+#             */
-/*   Updated: 2021/08/13 01:04:03 by jcluzet          ###   ########.fr       */
+/*   Updated: 2021/08/13 02:46:45 by jcluzet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	display(t_long *sl)
 	render(sl);
 	fixbomb(sl);
 	write(1, "\033[32m[ so_long launch successfully ]\033[00m\n", 43);
-	write(1, "MOVE : ", 8);
-	ft_putnbr(sl->move);
 	pos_player(sl);
 	mlx_put_image_to_window(sl->mlx_ptr,
 		sl->mlx_win, sl->img, 0, 0);
