@@ -47,4 +47,6 @@ and execute with ./so_long [map]
 Just do ./make bonus
 and execute with ./so_long_bonus maps/bonus.ber
 
+This project is conform with Norminette 3.3.2 📌
+
 👋🏼 If you encounter any problems when launching the game or if you have any questions, don't hesitate to send me an e-mail : jcluzet@student.42.fr
