@@ -1,5 +1,5 @@
 # so_long 
-## Compatible LINUX & MacOS ✅
+## Compatible LINUX & MacOS 119% ✅
 You play as a character who has to get out of the map with as little movement as possible and collect all the collectibles on the map. 
 
 ![bonus](https://user-images.githubusercontent.com/55356071/129287696-f7064eeb-1a90-4e33-bde7-58ad8f239051.gif)
